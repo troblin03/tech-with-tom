@@ -9,6 +9,7 @@ Web app workshop in question: https://webapp.serverlessworkshops.io/
 ## Architecture
 ###### Diagram
 <img width="1312" alt="wildrydes-complete-architecture" src="https://user-images.githubusercontent.com/54938676/207636226-33e2eb02-0405-49d3-864c-bbd8db35d721.png">
+
 ###### Explanation
 AWS Amplify
 Amazon Cognito
