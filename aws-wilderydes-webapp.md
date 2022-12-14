@@ -27,7 +27,7 @@ The key benefits of Cloud9 are:
 - **Code with just a browser -** Cloud9 allows a user to code within the browser only, removing the requirement of installing and maintaining a desktop IDE
 - **Code together in realt time -** Within Cloud9 your development environment can be shared with you team quickly and efficiently. This allows real time collaboration and pair programming.
 - **Start new projects quickly -** You can immediately provision EC2 server space, allowing support for over 40 programming languages
-- **Build serverless applications with ease - ** Definitely should be useful for this workshop! Essentially Cloud9 is an extremely easy space to develop serverless applications, allowing you to define resources, debug, and switch between local and remote execution of your code.
+- **Builde serverless applications with ease -** Definitely should be useful for this workshop! Essentially Cloud9 is an extremely easy space to develop serverless applications, allowing you to define resources, debug, and switch between local and remote execution of your code.
 
 ###### Dev Environment Set-Up
 Once we enter the start-up screen, we use the following settings:
