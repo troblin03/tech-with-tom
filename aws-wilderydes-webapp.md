@@ -68,4 +68,29 @@ Then we split out the WildRydesVue code into its own branch:
 sudo yum install git-subtree -y
 git subtree split -P resources/code/WildRydesVue -b WildRydesVue
 ```
-The first line is a workaround since subtree as a command isn't installed by defoult with git in these environments
+The first line is a workaround since subtree as a command isn't installed by defoult with git in Cloud9 environments
+###### Deploy
+Now we get to use AWS Amplify to deploy our code.
+
+We click 'get started', we can choose from a number of different git providers from which to deploy. As detailed in the last section, we used AWS CodeCommit. Likely for personal projects I'll use GitHub but since this is just a part of this workshop I'll proceed with AWS CodeCommit.
+
+We can then select from the repos we have stored in AWS CodeCommit. Here, ours is called wild-rydes (as defined in the previous section).
+
+Once we have made the selection, we can see that Amplify automatically recognises our backend and frontend frameworks
+```
+Frontend framework
+Vue
+Backend framework
+Amplify
+```
+Then, we need to create a new backend environment for the app within amplify. Here, we call it prod.
+
+In a world where this were in a larger organisation, we wouldn't want anyone associated with our AWS Root User to be able to deploy the backend. As such, we create a new service role and name it wildrydes-backend-role.
+
+Once this is created, we attach an IAM policy giving it CodeCommit Read-Only permissions. This follows the AWS principle of giving users the least amount of permissions required to do their role. Thus, we have a IAM role that has permissions to deploy the Amplify backend from reading a CodeCommit repo.
+
+We select this role and finally click 'save and deploy' in AWS Amplify.
+###### Modify
+One of the great things about AWS Amplify is its ability for continuous deployment (CD).
+
+In this example, I modified the html title and pushed the new index.html file into the CodeCommit repo and almost immediately, the AWS Amplify console was building the website again.
