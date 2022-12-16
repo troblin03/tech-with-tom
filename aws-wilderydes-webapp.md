@@ -99,6 +99,7 @@ In this example, I modified the html title and pushed the new index.html file in
 Here, we'll use the AWS Amplify CLI (Command Line Interface) to creates an Amazon Cognito user pool in order to manage user accounts.
 ###### Architecture
 ![authentication-architecture](https://user-images.githubusercontent.com/54938676/208049578-203ff461-ae33-4e78-9e30-01c126f6f104.png)
+
 Initially, visiters to the site will be required to register with a new user account. Once registered, users will receive a confirmation e-mail confirming that they have registered and a verification code that is used to finalise their account. From this point a username will be able to sign in.
 
 When they sign in, it triggers a JavaScript function to communicate with Amazon Cognito, authenticating with a Secure Remote Password (SRP) protocol.
