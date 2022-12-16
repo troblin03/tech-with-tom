@@ -94,3 +94,19 @@ We select this role and finally click 'save and deploy' in AWS Amplify.
 One of the great things about AWS Amplify is its ability for continuous deployment (CD).
 
 In this example, I modified the html title and pushed the new index.html file into the CodeCommit repo and almost immediately, the AWS Amplify console was building the website again.
+
+## User Management
+Here, we'll use the AWS Amplify CLI (Command Line Interface) to creates an Amazon Cognito user pool in order to manage user accounts.
+###### Architecture
+![authentication-architecture](https://user-images.githubusercontent.com/54938676/208049578-203ff461-ae33-4e78-9e30-01c126f6f104.png)
+Initially, visiters to the site will be required to register with a new user account. Once registered, users will receive a confirmation e-mail confirming that they have registered and a verification code that is used to finalise their account. From this point a username will be able to sign in.
+
+When they sign in, it triggers a JavaScript function to communicate with Amazon Cognito, authenticating with a Secure Remote Password (SRP) protocol.
+
+> SRP protocol is a method of password authentication. Essentially, it overcomes the problem of an 'eavesdropper' between two systems communicating obtaining information allowing them to brute-force guess or apply a dictionary attack to obtain a user's password. It achieves this by having one party (either the client or the user) demonstrate to the server that they know the password, without sending over the password itself or any other information from which the password could be derived.
+
+Once authenticated, Amazon Cognito returns a set of JSON web tokens (JWTs) containing claims about the identity of the user.
+
+> JWTs are an open standard method of transmitting information between parties as a JSON object. It allows the information to be digitally signed and thus allows increased levels of verification and trust. The payload is self-contained meaning that it contains all required information about the user to avoid multiple database queries.
+
+These JWTs will be used to authenticate against an API within our webapp later.
