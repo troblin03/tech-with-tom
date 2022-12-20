@@ -13,3 +13,4 @@ number of months as a Programme Delivery Lead on a project focussed on establish
   
    d) _Who_ will own the data and responsibility for a KPI. Ensure that data that feeds into the KPI is of good quality and availability. in my project, **personas** were used to identify who the KPI was applicable to
   
+There is a key differentiator between MI and and performance metrics. A KPI is data used to assess and drive performance, MI is information surrounding business processes, giving contextual understanding to someone assessing the team / group
