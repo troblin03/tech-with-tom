@@ -28,3 +28,7 @@ By default, access to AWS resources within an account are denied from outside th
 - Explicitly set AWS Budgets on Accounts to protect against unintended costs
 - Create IAM identities within your AWS accounts to manage parts of the AWS account. (E.g. IAMADMIN with admin permissions).
 - We can view AWS accounts as disposable because they operate as containers, isolating resources within them. Hence, we can make as many as we need.
+- In a business setting, it is worth visiting the _alternate contacts_ section. This allows you to specify contact details for:
+  - Billing
+  - Operations
+  - Security
