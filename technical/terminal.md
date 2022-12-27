@@ -32,6 +32,24 @@ In the terminal, the character that appears automatically (in my case a % symbol
   - `-r` adds a 'recursive' option to this command. The entire directory and all it's contents will be copied (backed up).
 - `rm` is short for remove and is essentially a 'delete' command
   - `-r` adds a 'recursive' option to this command. The entire directory and all it's contents will be deleted.
+- `>` informs the shell to redirect any output into a file instead of printing it in the CLI. The shell will create a new file or overwite the existing file if left unspecified.
+  - `>>` will instead append the output to an existing file, leaving the previous contents untouched
+- `less` preceding a file will print the contents of a file page by page in the CLI
+  - `b` pushes forward one screen, `b` back one, and `q` will quit.
+- `sort` will sort a file in the CLI. It DOES NOT alter the file itself
+  - The `-n` specifies a numerical rather than alphabetical sort
+  - Combined with the `>` command, we can send the sorted output to a new or existing file
+- `echo` can be used to print text
+- `cut` is used to remove or cut out certain sections of each line in the file. Unless specified, cut will expect the delimiter (seperator) to be the TAB key.
+  - We can use `-d ,` to specify a comma as the delimiter
+  - `-f 2` Can be used to specify the column to extract (in this example the second column).
+- `uniq` stands for uniq and filters any duplicates. We must include `sort` in the pipe prior to this because it only works on _adjacent_ lines.
+
+###### Pipes
+
+Having to run commands line by line can become confusing because you need to specify intermediaries and it can become difficult to follow. In Shell, we overcome this by using 'Pipes'
+
+- A pipe is communicated using the `|` symbol. It tells the shell to use the output of the command to the left as the input to the command to the right.
 
 ###### Wildcards
 
