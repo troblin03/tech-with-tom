@@ -26,3 +26,29 @@ The `<head>` element contains important meta-information about the webpages, and
 
 ###### The Charset Meta Element
  
+The meta tag for the charset is vital because it ensures correct display if special symbols and characters from multiple languages.
+ 
+```
+<meta charset="utf-8">
+```
+
+###### Title Elements
+
+The title element gives webpages a human-readable title which is displayed in the _browser tab_
+
+```
+ <title>My First Webpage</title>
+```
+ 
+Without the title tag, the webpage's title would default to its file name.
+
+## Body Element
+
+The final element required to complete the HTML 'boilerplate' we are creating is the `<body>` element. This contains all the content that will be displayed to users.
+
+```
+<body>
+</body>
+```
+ 
+ 
