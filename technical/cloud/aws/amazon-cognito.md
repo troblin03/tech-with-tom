@@ -22,7 +22,7 @@ The Cognito UserInfo endpoint will respond with user attributes when presented w
 
 (https://aws.amazon.com/blogs/architecture/web-application-access-control-patterns-using-aws-services/)
 
-###### 1. Authenticating clients using an Application Load Balancer
+###### Authenticating clients using an Application Load Balancer
 
 ![image](https://user-images.githubusercontent.com/54938676/210268033-217c956a-8130-42bf-9525-c5d3733e6d98.png)
 
@@ -36,7 +36,7 @@ The Cognito UserInfo endpoint will respond with user attributes when presented w
 
 This pattern is suited to low traffic APIs. It is priced on a number if different factors (hence it can add up in high traffic situations). These include hours, new and active connections. A load balancer is better suited to low-cost, non-differentiated applications (apps with a limited number of endpoints), long-running processes, or applications with ultra-high throughput. The ALB is used to distribute across horizontally scaled server instances.
 
-###### 2. Authenticating clients using Amazon API Gateway
+###### Authenticating clients using Amazon API Gateway
 
 ![image](https://user-images.githubusercontent.com/54938676/210269273-00f95097-60fc-4c20-aca6-3625e021142e.png)
 
@@ -52,6 +52,17 @@ This pattern is suited to low traffic APIs. It is priced on a number if differen
 
 This pattern is better suited for a microservice architecture because the API gateway can route the authentication request to wherever it needs to go in the architecture.
 
-###### 3. Authenticating at edge locations
+###### Authenticating at edge locations
 
 ![image](https://user-images.githubusercontent.com/54938676/210271132-7f69cb7c-284f-431c-912a-2c0ecb6f79c9.png)
+
+1. The client begins by starting authentication directly with Amazon Cognito to obtain the access token
+2. As previously, the client sends a HTTP request with the authorisation header to the CloudFront Distribution URL
+3. The CloudFront viewer request (executes when a request from the end user is received) event triggers the launch of the function Lambda @Edge
+4. The lamda function extracts the access token from the HTTP header and validates it with Cognito, either accepting or rejecting the request
+5. If accepted, the request is forwarded on to the application load balancer by CloudFront. In this set-up, you would configure CloudFront to add a custom value that can only be shared with the ALB
+6. The ALB has a listener rule set to check if the incoming request has the custom header with the shared value. This ensures that the public ALB only accepts requests forwarded by CloudFront.
+7. In this case, an enhanced security feature is included. The custom header can be stored in AWS Secrets Manager and rotated periodically using a lamda function
+8. This Lambda function will also interact with CloudFront and the ALB to communicate the new custom header
+
+Here, we make use of _edge locations_ for static Content Delivery. We offload this process to edge locations to reduce latency for delivery to our users.
