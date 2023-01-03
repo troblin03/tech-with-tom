@@ -32,3 +32,10 @@ Because software architecture is at the intersection of technology and business,
    - Cost
    - Time-to-market
    - Talent hiring
+
+###### Best practices in software architecture
+
+- Keep comprehensive documentation of all aspects of the architectural design and their interrelationships with other aspects of the project.
+- Implement a system to regularly evaluate the architecture to see if it is achieving its purpose.
+- Continuously analyse the system to ensure that it conforms to the intended architecture type.
+- Put systems in place at every stage of the architecture process to maintain quality assurance of the system's tasks, goals, and outputs.
