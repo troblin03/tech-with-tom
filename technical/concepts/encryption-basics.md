@@ -46,3 +46,15 @@ Then, they will creat asymmetric encryption keys. These keys are formed of two p
 In this case, the public key can **only** be used to create ciphertext, whilst the private key is required to decrypt the data. The sender will download the recipient's public key to encrypt their data. The sender will then be able to use their private key to decrypt the data into the plaintext.
 
 The reason this is not always used is because it is _very_ computationally expensive. Instead, often asymmetric encryption is used to transmit a symmetric key to then complete symmetric encryption.
+
+## Signing
+
+In asymmetric encryption, we encounter difficulty in letting the sender know that the data was received and decrypted succesfully. This is because anyone has access to the public key and hence anyone can encrpypt a message to the sender.
+
+Instead, we can 'sign' the information to let the sender know it was received. In order to do this, the recipient can encrpyt the confirmation with the private key and the sender can confirm and decrypt that message with the public key of the recipient. Essentially the inverse of the description above.
+
+## Steganography
+
+One problem with typical encryption is that it is clear that data has been encrypted. To anyone looking at it, they will be able to know that it has been encrypted and so could come under threat or be foreced to decrypt data. This is what steganography aims to combat.
+
+Steganography hides the data in a larger file, making it almost impossible to find the data without knowing where to look.
